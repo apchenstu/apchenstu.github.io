@@ -38,8 +38,8 @@
     <div class="container"></div>
         <h1 class="nerf_title_v2">Factor Fields and Beyond</h1>
         <p></p>
-        <h3 class="nerf_subheader_v2">Our approach is accepted by <b class="SIGGRAPH-color">SIGGRAPH 2023 (Journal Track)</b> <br>
-        TL; DR:</b> Providing a <b>unified formula</b> (Factor Fields) and a <b>dictionary factorization</b> approach (Beyond)
+        <h3 class="nerf_subheader_v2">Dictionary Fields accepted to <b class="SIGGRAPH-color">SIGGRAPH 2023 (Journal Track)</b>, but Factor Fields rejected<br>
+        TL; DR:</b> We provide a <b>unified formula</b> for neural fields (Factor Fields) and a novel <b>dictionary factorization</b> (Dictionary Fields)
         </h3>
     <!-- <hr> -->
     <p class="authors">
@@ -72,7 +72,7 @@
                         FactorFields
                     </a>
                 <li class="nav-item text-center">
-                    <a href="https://arxiv.org/abs/2302.01226" class="nav-link" >
+                    <a href="https://dl.acm.org/doi/10.1145/3592135" class="nav-link" >
                         <svg style="width:48px;height:48px" viewBox="0 0 24 24">
                             <path fill="currentColor" d="M16 0H8C6.9 0 6 .9 6 2V18C6 19.1 6.9 20 8 20H20C21.1 20 22 19.1 22 18V6L16 0M20 18H8V2H15V7H20V18M4 4V22H20V24H4C2.9 24 2 23.1 2 22V4H4M10 10V12H18V10H10M10 14V16H15V14H10Z" />
                         </svg><br>
@@ -137,7 +137,7 @@
             </p>
 
             <h2 class="grey-heading_nerf">
-                Diectionary Factorization (DiF)
+                Diectionary Field (DiF)
             </h2>
             <p class="paragraph-3 nerf_text">
                 Inspired by classical sparse coding and principal component analysis.
@@ -171,7 +171,7 @@
                 <img src="img/images.png" style="width:95%; margin-right:0px; margin-top:0px;">
         </div>
         <p class="paragraph-3 nerf_text">
-        our method achieves better reconstruction quality on all
+        Our method achieves better reconstruction quality on all
         images when using the same model size. While optimization is slower than Instant-NGP, we use a vanilla PyTorch implementation without customized CUDA
         kernels. “Summer Day” credit goes to Johan Hendrik Weissenbruch and rijksmuseum. “Albert” credit goes to Orren Jack Turner. “Pluto” credit goes to NASA.
         “Girl With a Pearl Earring” renovation ©Koorosh Orooj (CC BY-SA 4.0).
@@ -441,7 +441,7 @@
                 <img src="img/inpainting.png" style="width:95%; margin-right:0px; margin-top:0px;">
         </div>
         <p class="paragraph-3 nerf_text">
-        we show the image regression results on three different
+        We show the image regression results on three different
         facial images with various masks and compare them to baseline
         methods that do not use any data priors, including Instant-NGP and
         our DiF-MLP-B without pre-training. As expected, Instant-NGP can
@@ -472,7 +472,7 @@
                 <img src="img/few-shot.jpg" style="width:95%; margin-right:0px; margin-top:0px;">
         </div>
         <p class="paragraph-3 nerf_text">
-        our pre-trained DiF representation with MLP basis provides strong regularization
+        Our pre-trained DiF representation with MLP basis provides strong regularization
         for few-shot reconstruction, resulting in fewer artifacts
         and better reconstruction quality than the single-scene optimization
         methods without data priors and previous few-shot reconstruction
@@ -507,12 +507,12 @@
         <p class="paragraph-3 nerf_text">
             This project page includes two papers: <br>
             <ul style="text-align: left; margin-left: 30px">
-                <li>Dictionary Fields: Learning a Neural Basis Decomposition
-                <li>Factor Fields: A Unified Framework for Neural Fields and Beyond
+                <li><a href="https://dl.acm.org/doi/10.1145/3592135" class="nav-link: left" > Dictionary Fields: Learning a Neural Basis Decomposition</a> 
+                <li><a href="https://arxiv.org/abs/2302.01226" class="nav-link: left"> Factor Fields: A Unified Framework for Neural Fields and Beyond</a> 
             </ul>
         </p>
         <p class="paragraph-3 nerf_text">
-            Please cite if you find they are helpful:
+            Please cite us if you find our work useful:
         </p>
         <div class="bibtexsection">
             @article{Chen2023factor,
