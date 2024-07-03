@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta content="LaRa builds a feed-forward 2DGS model in two days using 4 GPUs."
+    name="description" />
+  <meta content="LaRa: Efficient Large-Baseline Radiance Fields" property="og:title" />
+  <meta content="LaRa builds a feed-forward 360&deg; bounded radiance field model in two days using 4 GPUs."
+    property="og:description" />
+  <meta content="data/icons/lara.webp" property="og:image" />
+  <meta content="LaRa: Efficient Large-Baseline Radiance Fields" property="twitter:title" />
+  <meta content="LaRa builds a feed-forward 360&deg; bounded radiance field model in two days using 4 GPUs."
+    property="twitter:description" />
+  <!-- <meta content="data/icons/lara.webp" property="twitter:image" /> -->
+  <meta property="og:type" content="website" />
+  <meta content="summary_large_image" name="twitter:card" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <!--<meta name="google-site-verification" content="sdz4d86QkTWaWHiWkS9mtiln38Bu0wirf94l-z1MkhQ" /> -->
+
+
+  <title>LaRa: Efficient Large-Baseline Radiance Fields</title>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script
+    type="text/javascript">WebFont.load({ google: { families: ["Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic", "Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic", "Ubuntu:300,300italic,400,400italic,500,500italic,700,700italic", "Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic", "Changa One:400,400italic", "Varela Round:400", "Bungee Shade:regular", "Roboto:300,regular,500", "Bungee Outline:regular"] } });</script>
+  <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif]-->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="./static/script.js" type="text/javascript"></script>
+
+  <link href="./static/style.css" rel="stylesheet" type="text/css" />
+
+  <link href="data/icons/lara_dark.webp" rel="icon" media="(prefers-color-scheme: light)" />
+  <link href="data/icons/lara_dark.webp" rel="icon" media="(prefers-color-scheme: dark)" />
+
+
+  <!-- Comparison -->
+  <link rel="stylesheet" href="./static/css/dics.original.css">
+  <script src="./static/js/dics.original.js"></script>
+  <link rel="stylesheet" href="./static/css/bootstrap-4.4.1.css">
+
+  <link rel="stylesheet" href="./static/css/dics.original.css">
+  <script src="./static/js/dics.original.js"></script>
+  <script src="./static/js/event_handler.js"></script>
+
+  <!-- <script
+  defer
+  src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"
+  ></script>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"
+  />
+
+  <style>
+    .coloured-slider {
+      --divider-color: rgba(0, 0, 0, 0.5);
+      --default-handle-color: rgba(0, 0, 0, 0.5);
+    }
+  </style> -->
+
+  <link rel="stylesheet" href="./static_bulma/css/bulma.min.css">
+  <link rel="stylesheet" href="./static_bulma/css/bulma-carousel.min.css">
+
+  <link rel="stylesheet" href="./static_bulma/css/index.css">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static_bulma/js/fontawesome.all.min.js"></script>
+  <script src="./static_bulma/js/bulma-carousel.min.js"></script>
+  <script src="./static_bulma/js/bulma-slider.min.js"></script>
+  <script src="./static_bulma/js/index.js"></script> 
+<body>
+
+
+  <div class="section">
+    <div class="container_title">
+      <div class="title-row">
+        <h1 class="title is-1 publication-title">LaRa</h1>
+        <h1 class="subheader">Efficient Large-Baseline Radiance Fields</h1>
+        <h1 class="subheader">ECCV 2024</h1>
+        <!-- <h1 class="title is-1 publication-title">LaRa: Efficient Large-Baseline Radiance Fields</h1> -->
+      </div>
+      <br>
+      <div class="base-row author-row">
+        <div class="base-col author-col">
+          <a href="https://apchenstu.github.io/" target="_blank" class="author-text">
+            Anpei Chen
+          </a>
+        </div>
+        <div class="base-col author-col">
+          <a href="https://haofeixu.github.io/" target="_blank" class="author-text">
+            Haofei Xu
+          </a>
+        </div>
+        <div class="base-col author-col">
+          <a href="https://s-esposito.github.io/" target="_blank" class="author-text">
+            Stefano Esposito
+          </a>
+        </div>
+        <!-- <div class="base-col author-col">
+          <a href="https://scholar.google.com/citations?user=484sccEAAAAJ&hl=en" target="_blank" class="author-text">
+            Samuel Rota Bulò
+          </a>
+        </div>
+        <div class="base-col author-col">
+          <a href="https://scholar.google.it/citations?user=vW1gaVEAAAAJ&hl=it" target="_blank" class="author-text">
+            Lorenzo Porzi
+          </a>
+        </div> -->
+        <div class="base-col author-col">
+          <a href="https://inf.ethz.ch/people/person-detail.MjYyNzgw.TGlzdC8zMDQsLTg3NDc3NjI0MQ==.html" target="_blank" class="author-text">
+            Siyu Tang
+          </a>
+        </div>
+        <!-- <div class="base-col author-col">
+          <a href="https://richardt.name/" target="_blank" class="author-text">
+            Christian Richardt 
+          </a>
+        </div>
+        <div class="base-col author-col">
+          <a href="https://zollhoefer.com/" target="_blank" class="author-text">
+            Michael Zollhöfer  
+          </a>
+        </div>
+        <div class="base-col author-col">
+          <a href="https://scholar.google.com/citations?user=CxbDDRMAAAAJ&hl=en" target="_blank" class="author-text">
+            Peter Kontschieder 
+          </a>
+        </div> -->
+        <div class="base-col author-col">
+          <a href="https://www.cvlibs.net/" target="_blank" class="author-text">
+            Andreas Geiger 
+          </a>
+        </div>
+      </div>
+      <br>
+      <div>
+        <h1 id="tubingen">University of Tübingen, Tübingen AI Center; ETH Zürich</h1>
+      </div>
+      <br>
+
+
+      <div class="link-labels base-row">
+        <div class="base-col icon-col"><a href="LaRa.pdf" target="_blank" class="link-block"><img
+              src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01.png"
+              alt="paper"
+              sizes="(max-width: 479px) 12vw, (max-width: 767px) 7vw, (max-width: 991px) 41.8515625px, 56.6953125px"
+              srcset="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01-p-500.png 500w, https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01.png 672w"
+              class="icon-img" /></a></div>
+        <div class="base-col icon-col"><a href="https://github.com/autonomousvision/LaRa" class="link-block"><img
+              src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cae3b53b42ebb3dd4175a82_68747470733a2f2f7777772e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f6f637469636f6e732f313032342f6d61726b2d6769746875622d3235362e706e67.png"
+              alt="paper" class="icon-img github-img-icon" /></a></div>
+        <div class="base-col icon-col"><a
+          href="LaRa.pdf"
+          target="_blank" class="link-block"><img
+              src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5e7136849ee3b0a0c6a95151_database.svg"
+              alt="paper" class="icon-img data-img-icon" /></a></div>
+      </div>
+      <div class="link-labels base-row">
+        <div class="base-col icon-col">
+          <strong class="link-labels-text">Paper</strong>
+        </div>
+        <div class="base-col icon-col">
+          <strong class="link-labels-text">&lt;/Code&gt;</strong>
+        </div>
+        <div class="base-col icon-col">
+          <strong class="link-labels-text">Data</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="container_teaser">
+      <h1 class="tldr" style="text-align: center">
+        <b>TL;DR</b>:
+        We train a feed-forward 2DGS model in two days using 4 GPUs.
+      </h1>
+      <video id="main-video" muted autoplay playsinline loop>
+        <source id="mp4" src="data/videos/demo.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <br><br>
+    <div class="container">
+      <!-- pipeline. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">How LaRa works</h2>
+          <div class="content has-text-justified">
+            <p>
+              <b>Abstract:</b> Radiance field methods have achieved photorealistic novel view synthesis and geometry reconstruction. 
+              But they are mostly applied in per-scene optimization or small-baseline settings. 
+              While several recent works investigate feed-forward reconstruction with large baselines by utilizing transformers, 
+              they all operate with a standard global attention mechanism and hence ignore the local nature of 3D reconstruction.
+              We propose a method that unifies local and global reasoning in transformer layers, resulting in improved quality and faster convergence. 
+            </p>
+            <p>
+              <b>Method:</b> LaRa represents scenes as Gaussian Volumes and combines this with an image encoder and Group Attention Layers 
+              for efficient feed-forward reconstruction:
+            <ol>
+              <li>Scenes are represented as Gaussian Volume.</li>
+              <li>An embedding volume models 3D prior, leaned from dataset.</li>
+              <li>Extract per-view DINO features and lift them into 3D feature volumes.</li>
+              <li>Volume attention between feature volume and embedding volume, ouputs Gaussian Volume.</li>
+              <li>Transform Gaussian volume into coarse-to-fine 2D Gaussian primitives, using splatting for efficient rendering.</li>
+            </ol>
+            </p>
+          </div>
+        </div>
+      </div>
+      <video id="main-video" controls poster="data/images/poster.png">
+        <source id="mp4" src="data/videos/pipeline.mp4" type="video/mp4">
+      </video>
+      <!--/ pipeline. -->
+    </div>
+
+    <div class="container_result">
+      <h2 class="title is-3">Results</h2>
+  
+      <div class="paragraph" style="text-align: center">
+        4 input views, video rendering together with mesh extraction are done within 2s
+      </div>
+
+      <video id="main-video" muted autoplay playsinline loop>
+        <source id="mp4" src="data/videos/gobjaverse.mp4" type="video/mp4">
+      </video>
+      <div class="paragraph" style="text-align: center">
+        Reconstruction results on <b>Gobjaverse</b> testing set
+      </div>
+
+      <video id="main-video" muted autoplay playsinline loop>
+        <source id="mp4" src="data/videos/gso.mp4" type="video/mp4">
+      </video>
+      <div class="paragraph" style="text-align: center">
+        Reconstruction results on <b>Google Scanned Object</b> dataset
+      </div>
+
+      <video id="main-video" muted autoplay playsinline loop>
+        <source id="mp4" src="data/videos/instant3d.mp4" type="video/mp4">
+      </video>
+      <div class="paragraph" style="text-align: center">
+        Reconstruction results on <b>Instant3D</b> scenes
+      </div>
+
+      <h2 class="section-header">Comparison</h2>
+
+
+      <div class="container_comop">
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item item-steve">
+              <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+                <source src="data/videos/comp_instant3d.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-steve">
+              <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+                <source src="data/videos/comp_gobjaverse_1.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-chair-tp">
+              <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+                <source src="data/videos/comp_gobjaverse_2.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-shiba">
+              <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+                <source src="data/videos/comp_gso_1.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-fullbody">
+              <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+                <source src="data/videos/comp_gso_2.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-shiba">
+              <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+                <source src="data/videos/comp_co3d_1.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-fullbody">
+              <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+                <source src="data/videos/comp_co3d_2.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="paragraph" style="text-align: center">
+            From left to right: <b>MVSNeRF</b>, <b>LGM</b>, <b>Ours</b>. <br>
+            Our approach is robust to scene scale and can generalize to real captured images.
+            In contrast, MVSNeRF fails to provide faithful reconstructions since the cost volume is extremely noisy in the sparse view scenarios.
+            LGM leverages a monocular prediction and fusion technique that requires a reference scene scale and a constant camera-object distance to avoid focal length and distance ambiguity.
+            This requirement significantly limits its generalizability to real data.
+          </div>
+
+      </div>
+      <br>
+      <div class="container_comop">
+        <ul class="nav nav-tabs nav-fill nav-justified" id="object-scale-recon">
+          <li class="nav-item">
+            <a class="nav-link" onclick="objectSceneEvent(0)">Gobjaverse-1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" onclick="objectSceneEvent(1)">Gobjaverse-2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" onclick="objectSceneEvent(2)">GSO-1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" onclick="objectSceneEvent(3)">GSO-2</a>
+          </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="objectSceneEvent(4)">Co3D-1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" onclick="objectSceneEvent(5)">Co3D-2</a>
+            </li>
+        </ul>
+        <div class="b-dics" style="width: 1250px; font-weight: 600;">
+          <img src="data/images/gobjaverse_1_gt.png" alt="Inputs">
+          <img src="data/images/gobjaverse_1_mvsnerf.png" alt="MVSNeRF">
+          <img src="data/images/gobjaverse_1_lgm.png" alt="LGM">
+          <img src="data/images/gobjaverse_1_ours.png" alt="Ours">
+          <img src="data/images/gobjaverse_1_gt.png" alt="GT">
+      </div>
+
+      </section>
+
+      <br>
+
+      <h2 class="section-header">Ablations</h2>
+      <video id="main-video" muted autoplay playsinline loop>
+        <source id="mp4" src="data/videos/ablations.mp4" type="video/mp4">
+      </video>
+
+      <h2 class="section-header">Citation</h2>
+      <div class="citation add-top-padding">
+        <p> If you use this work or find it helpful, please consider citing: (bibtex) </p>
+        <pre id="codecell0">@inproceedings{LaRa,
+        &nbsp;author = {Chen, Anpei and Xu, Haofei and Esposito, Stefano and Tang, Siyu and Geiger, Andreas},
+        &nbsp;title = {LaRa: Efficient Large-Baseline Radiance Fields},
+        &nbsp;booktitle = {arxiv: xxx},
+        &nbsp;year = {2024},
+        } </pre>
+      </div>
+
+      <h2 class="section-header">Acknowledgement</h2>
+      <div class="content has-text-justified">
+        <p>
+          We thank Bozidar Antic for pointing out a bug, which resulted in an improvment of about 1dB. 
+          Special thanks to BinBin Huang and Zehao Yu for their helpful discussion and suggestions.
+          We would like to also thank Bi Sai, Jiahao Li, Zexiang Xu for providing us <a href="https://instant-3d.github.io/">Instant3D</a> testing examples,
+          and Jiaxiang Tang for helping us to construct a comparison with <a href="https://me.kiui.moe/lgm/">LGM</a>. 
+          <!-- This project was funded by Meta. -->
+          The website template is partly borrowed from <a href="https://niujinshuchong.github.io/mip-splatting/">Mip-Splatting</a> 
+          and <a href="https://instruct-gs2gs.github.io/">Instruct-GS2GS</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
