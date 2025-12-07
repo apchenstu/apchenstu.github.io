@@ -1,0 +1,257 @@
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #e28353; /* Keep your original accent color */
+    --bg-color: #ffffff;
+    --text-color: #4a5568;
+    --light-bg: #f8f9fa;
+    --border-radius: 12px;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+/* Header Section */
+#header {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #eaeaea;
+    margin-bottom: 40px;
+}
+
+.profile-img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 50%; /* Circle portrait */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.02);
+}
+
+.name-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 5px;
+}
+
+.email-text {
+    font-family: 'Courier New', monospace;
+    color: #718096;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+/* Social Icons */
+.social-links {
+    margin-top: 15px;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--light-bg);
+    color: var(--primary-color);
+    margin-right: 10px;
+    font-size: 18px;
+    transition: all 0.2s;
+}
+
+.social-btn:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.cv-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+    color: white !important;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+.cv-link:hover {
+    background-color: var(--accent-color);
+}
+
+/* Section Headers */
+h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 15px;
+}
+
+h1::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    bottom: 5px;
+    width: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+/* Paper List Styling */
+.paper-item {
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: var(--border-radius);
+    background: #fff;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.paper-item:hover {
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-color: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+.paper-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 5px;
+    line-height: 1.3;
+}
+
+.paper-authors {
+    font-size: 15px;
+    color: #4a5568;
+    margin-bottom: 8px;
+}
+
+.paper-authors b {
+    color: #1a202c;
+    font-weight: 600;
+}
+
+/* Badges for Conferences */
+.conf-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    background-color: #edf2f7;
+    color: #2d3748;
+    margin-bottom: 8px;
+}
+
+.conf-badge.highlight {
+    background-color: #fff5f0; /* Light orange bg */
+    color: #c05621;
+    border: 1px solid #fed7d7;
+}
+
+/* Links Buttons for Papers */
+.resource-link {
+    font-size: 13px;
+    font-weight: 600;
+    margin-right: 12px;
+    display: inline-flex;
+    align-items: center;
+    color: #718096;
+}
+
+.resource-link i {
+    margin-right: 4px;
+}
+
+.resource-link:hover {
+    color: var(--accent-color);
+}
+
+/* Images and Videos */
+.paper-media {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+video, img.img-fluid {
+    display: block;
+    width: 100%;
+}
+
+/* Highlight Color Helper */
+.highlight-color {
+    color: var(--accent-color);
+}
+
+/* Layout Helpers */
+.container {
+    max-width: 960px; /* Make it slightly narrower for better reading */
+}
+
+.vspace-top { margin-top: 40px; }
+
+/* 基础动画类 */
+.hover-fx {
+    display: inline-block; /* transform 属性需要 inline-block 或 block 才能生效 */
+    text-decoration: none; /* 推荐：先去掉默认下划线，完全由我们控制 */
+    transition: transform 0.25s cubic-bezier(.5, 1.7, .5, 1), 
+                text-shadow 0.25s ease;
+    /* 默认发光色，防止未定义变量时出错 */
+    --glow-color: rgba(0, 0, 0, 0.2); 
+}
+
+/* 悬停效果 */
+.hover-fx:hover {
+    /* 你的原始变换参数 */
+    transform: scale(1.06) rotate(-1deg) skewX(-2deg);
+    /* 使用 CSS 变量调用颜色 */
+    text-shadow: 0 2px 12px var(--glow-color);
+    
+    /* 如果希望文字本身有下划线，加上这个；如果觉得不需要可以删掉 */
+    /* text-decoration: underline; */
+}
+
+/* 针对内部包含 bold 标签的情况，确保继承样式（可选，视你的全局CSS而定） */
+.hover-fx b {
+    display: inline-block; /* 确保 b 标签也能正确响应布局 */
+}
+
+/* Footer */
+#footer {
+    margin-top: 80px;
+    padding: 40px 0;
+    border-top: 1px solid #eaeaea;
+    text-align: center;
+    font-size: 14px;
+    color: #a0aec0;
+}
+
