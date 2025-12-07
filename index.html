@@ -1,100 +1,293 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Anpei Chen</title>
-
+    <title>Anpei Chen (陈安沛) - Inception3D</title>
     <!-- Meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Anpei Chen's Academic Homepage">
+
+    <!-- Fonts: Inter for a clean, modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+    <!-- Icons: FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- MathJax - defer loading -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
 
     <!-- Custom Styles -->
     <style>
-          body {
-            font-family: 'sans-serif';
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e28353; /* Keep your original accent color */
+            --bg-color: #ffffff;
+            --text-color: #4a5568;
+            --light-bg: #f8f9fa;
+            --border-radius: 12px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
             font-size: 16px;
-            background-color: #FFFFFF;
-            color: #4F6071;
-          }
-          #header {
-            background-color: #f4f4f4;
-            /*background-color: #FFFFFF;*/
-            display: flex;
-            align-items: flex-end;
-            padding-top:60px;
-            padding-bottom:60px;
-          }
-          #footer {
-            background-color: #FFFFFF;
-            padding:60px;
-          }
-          #portrait {
-            border: 3px solid white;
-          }
-          #header-text {
-            margin-top: 60px;
-            margin-left: 220px;
-          }
-          #header-text-name {
-            font-size: 40px;
-          }
-          #header-text-email {
-            font-size: 20px;
-            font-style: italic;
-          }
-          .header-text-desc {
-            font-size: 20px;
-          }
-          .vspace-top {
-            margin-top: 30px;
-          }
-          .vspace-top-news {
-              margin-top: 15px;
-          }
-          .paper-image {
-            width: 150px;
-          }
-          .news-date {
-              font-weight: bold;
-          }
-          .paper-title {
-            font-weight: bold;
-          }
-          .paper-authors {
-            font-style: italic;
-          }
-          .highlight-color {
-            color: rgb(226, 131, 83);
-          }
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        /* Header Section */
+        #header {
+            padding-top: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #eaeaea;
+            margin-bottom: 40px;
+        }
+
+        .profile-img {
+            width: 100%;
+            max-width: 200px;
+            border-radius: 50%; /* Circle portrait */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.02);
+        }
+
+        .name-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 5px;
+        }
+
+        .email-text {
+            font-family: 'Courier New', monospace;
+            color: #718096;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        /* Social Icons */
+        .social-links {
+            margin-top: 15px;
+        }
+        
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--light-bg);
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-size: 18px;
+            transition: all 0.2s;
+        }
+
+        .social-btn:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .cv-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background-color: var(--primary-color);
+            color: white !important;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-right: 10px;
+        }
+        
+        .cv-link:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Section Headers */
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        h1::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            bottom: 5px;
+            width: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* Paper List Styling */
+        .paper-item {
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: var(--border-radius);
+            background: #fff;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .paper-item:hover {
+            background: #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .paper-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+
+        .paper-authors {
+            font-size: 15px;
+            color: #4a5568;
+            margin-bottom: 8px;
+        }
+
+        .paper-authors b {
+            color: #1a202c;
+            font-weight: 600;
+        }
+
+        /* Badges for Conferences */
+        .conf-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            background-color: #edf2f7;
+            color: #2d3748;
+            margin-bottom: 8px;
+        }
+
+        .conf-badge.highlight {
+            background-color: #fff5f0; /* Light orange bg */
+            color: #c05621;
+            border: 1px solid #fed7d7;
+        }
+
+        /* Links Buttons for Papers */
+        .resource-link {
+            font-size: 13px;
+            font-weight: 600;
+            margin-right: 12px;
+            display: inline-flex;
+            align-items: center;
+            color: #718096;
+        }
+        
+        .resource-link i {
+            margin-right: 4px;
+        }
+
+        .resource-link:hover {
+            color: var(--accent-color);
+        }
+
+        /* Images and Videos */
+        .paper-media {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        video, img.img-fluid {
+            display: block;
+            width: 100%;
+        }
+
+        /* Highlight Color Helper */
+        .highlight-color {
+            color: var(--accent-color);
+        }
+
+        /* Layout Helpers */
+        .container {
+            max-width: 960px; /* Make it slightly narrower for better reading */
+        }
+        
+        .vspace-top { margin-top: 40px; }
+        
+        /* Footer */
+        #footer {
+            margin-top: 80px;
+            padding: 40px 0;
+            border-top: 1px solid #eaeaea;
+            text-align: center;
+            font-size: 14px;
+            color: #a0aec0;
+        }
+
     </style>
 </head>
 
 <body>
+
     <div id='header'>
         <div class='container'>
-            <div class='row'>
-                <div class="col-sm-2 offset-sm-1">
-                    <img src='imgs/portrait.png' class='img-fluid'>
+            <div class='row align-items-center'>
+                <div class="col-md-3 text-center text-md-left">
+                    <img src='imgs/portrait.png' class='profile-img' alt="Anpei Chen">
                 </div>
 
-                <div class="col">
-                  <div id='header-text-name'>
+                <div class="col-md-9">
+                  <div class="name-title">
                       Anpei Chen (陈安沛)
                   </div>
-                  <div id='header-text-email'>
-                        chenanpei (at) westlake.edu.cn
-                  </div>
-                  <div>
-                    <a href="docs/Anpei_CV.pdf">CV</a> | 
-                    <a href="https://scholar.google.com/citations?user=fuR1FBwAAAAJ&hl=en">Google Scholar</a>  | 
-                    <a href="https://github.com/apchenstu">GitHub</a> | 
-                    <a href="https://twitter.com/anpeic?s=21&t=P_y-4gs-Pks6i3LPXgybFg">Twitter</a>
-                    
+                  <div class="email-text">
+                    <i class="fas fa-envelope"></i> chenanpei (at) westlake.edu.cn
                   </div>
                   
+                  <div class="mt-3">
+                      Assistant Professor @ Westlake University<br>
+                      Lead of <a href="http://www.inception3d.fun/"><b class="highlight-color">Inception3D Lab</b></a>
+                  </div>
+
+                  <div class="social-links">
+                    <a href="docs/Anpei_CV.pdf" class="cv-link"><i class="fas fa-file-pdf"></i>&nbsp; CV</a>
+                    <a href="https://scholar.google.com/citations?user=fuR1FBwAAAAJ&hl=en" class="social-btn" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                    <a href="https://github.com/apchenstu" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://twitter.com/anpeic?s=21&t=P_y-4gs-Pks6i3LPXgybFg" class="social-btn" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="http://www.inception3d.fun/" class="social-btn" title="Inception3D Lab">
+                        <img src="imgs/inception3d_logo.ico" alt="Inception3D Lab" style="height:22px; margin-right:6px; vertical-align:middle;">
+                    </a>
+                </div>
                 </div>
             </div>
         </div>
@@ -102,772 +295,792 @@
 
 
     <div class='container'>
-        <div class='row vspace-top'>
-            <div class='col offset-sm-1'>
+        <div class='row'>
+            <div class='col-md-12'>
                 <h1>Bio</h1>
                 <p>
-                    I lead the <a href="http://www.inception3d.fun/"><b class="highlight-color">Inception3D Lab, Westlake University</b></a>. I was a visiting scholar at <a href="https://cseweb.ucsd.edu/~haosu/lab/group.html">Hao Su's Lab</a> and <a href="https://ellis.eu/phd-postdoc">ELLIS Postdoc</a> joinly supervised by Prof. <a href="http://www.cvlibs.net/">Andreas Geiger</a> (University of Tübingen) and Prof. <a href="https://vlg.inf.ethz.ch/team/Prof-Dr-Siyu-Tang.html">Siyu Tang</a> (ETH Zürich). I obtained my Ph.D at Chinese Academy of Sciences (ShanghaiTech) <a href="http://vic.shanghaitech.edu.cn/">Visual Intelligent Center (VIC)</a> in 2022, working with
-                    Prof. <a href="http://www.yu-jingyi.com/cv/">Jingyi Yu</a>. Before that, I received my Bachelor degree in 2016 from Xidian University.
-                    <br><br>
-                    My research focuses on computer graphics, computer vision and spatial intelligence, encompassing areas such as visual representation learning, 3D reconstruction&generation, and physics,
+                    I lead the <a href="http://www.inception3d.fun/"><b class="highlight-color">Inception3D Lab, Westlake University</b></a>. 
+                    I was a visiting scholar at <a href="https://cseweb.ucsd.edu/~haosu/lab/group.html">Hao Su's Lab</a> and <a href="https://ellis.eu/phd-postdoc">ELLIS Postdoc</a> jointly supervised by Prof. <a href="http://www.cvlibs.net/">Andreas Geiger</a> (University of Tübingen) and Prof. <a href="https://vlg.inf.ethz.ch/team/Prof-Dr-Siyu-Tang.html">Siyu Tang</a> (ETH Zürich). 
+                    I obtained my Ph.D. at Chinese Academy of Sciences (ShanghaiTech) <a href="http://vic.shanghaitech.edu.cn/">Visual Intelligent Center (VIC)</a> in 2022, working with Prof. <a href="http://www.yu-jingyi.com/cv/">Jingyi Yu</a>. 
+                    Before that, I received my Bachelor degree in 2016 from Xidian University.
+                </p>
+                <p>
+                    My research focuses on <b>computer graphics, computer vision, and spatial intelligence</b>, encompassing areas such as visual representation learning, 3D reconstruction & generation, and physics,
                     with the goal of efficiently understanding 3D from 2D.
-                    I have a great passion on new things and ideas, my goal is to create magic and happiness.
-                    <br>
+                    I have a great passion for new things and ideas; my goal is to create magic and happiness.
                 </p>
 
                 <div class='vspace-top'>
-                    <h1> </h1>
-                </div>
-                
-
-                <div class='vspace-top'>
                     <h1>Services</h1>
-                    Area Chair: CVPR 23/24/25/26, 3DV 24/25, NeurIPS 24/25<br>
-                    Journal reviewer: TOG, TIP, TPAMI, INFFUS ...<br>
-                    Conference reviewer: SIGGRAPH, SIGGRAPH Asia, ICCV, ECCV, ICLR, NeurIPS, AAAI ...<br>
-                    Workshop: <a href="https://neural-rendering.com/">Neural Rendering Intelligence (CVPR'24)</a>,  <a href="https://3d-in-the-wild.github.io/">Wild3D (ICCV'25)</a><br>
+                    <ul class="list-unstyled">
+                        <li><b>Area Chair:</b> CVPR 23/24/25/26, 3DV 24/25, NeurIPS 24/25</li>
+                        <li><b>Journal Reviewer:</b> TOG, TIP, TPAMI, INFFUS ...</li>
+                        <li><b>Conference Reviewer:</b> SIGGRAPH, SIGGRAPH Asia, ICCV, ECCV, ICLR, NeurIPS, AAAI ...</li>
+                        <li><b>Workshop:</b> <a href="https://neural-rendering.com/">Neural Rendering Intelligence (CVPR'24)</a>,  <a href="https://3d-in-the-wild.github.io/">Wild3D (ICCV'25)</a></li>
+                    </ul>
                 </div>
 
                 <div class='vspace-top'>
                     <h1>Publications</h1>
+                    <p class="text-muted small mb-4">* denotes equal contribution or advising; &dagger; denotes corresponding author</p>
                 </div>
 
-                <p> * denotes equal contribution or advising; &dagger; denotes corresponding author</p>
-
-                <div class='row vspace-top'>
+                <!-- Paper Item: Easi3R -->
+                <div class='row paper-item'>
                     <div class="col-sm-3">
-                        <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
-                            <source src="imgs/easi3r.mp4" type="video/mp4">
-                        </video>
+                        <div class="paper-media">
+                            <video width="100%" playsinline="" loop="" preload="none" muted="">
+                                <source src="imgs/easi3r.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
-  
-                    <div class="col">
+                    <div class="col-sm-9">
                         <div class='paper-title'>
                             Easi3R: Estimating Disentangled Motion from DUSt3R Without Training
                         </div>
-                        <div class='paper-desc'>
-                            ICCV 2025
-                        </div>
+                        <div class="conf-badge">ICCV 2025</div>
                         <div class='paper-authors'>
                             Xingyu Chen, Yue Chen, Yuliang Xiu, Andreas Geiger, <b>Anpei Chen&dagger;</b>
                         </div>
-                        <div>
-                            <a href="https://easi3r.github.io/">[Project page]</a>
-                            <a href="https://arxiv.org/abs/2503.24391">[Paper]</a>
-                            <a href="https://github.com/Inception3D/Easi3R">[Code]</a>
+                        <div class="mt-2">
+                            <a href="https://easi3r.github.io/" class="resource-link"><i class="fas fa-globe"></i> Project</a>
+                            <a href="https://arxiv.org/abs/2503.24391" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://github.com/Inception3D/Easi3R" class="resource-link"><i class="fab fa-github"></i> Code</a>
                         </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                <!-- Paper Item: GenFusion -->
+                <div class='row paper-item'>
                     <div class="col-sm-3">
-                        <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
-                            <source src="imgs/genfusion.mp4" type="video/mp4">
-                        </video>
+                        <div class="paper-media">
+                            <video width="100%" playsinline="" loop="" preload="none" muted="">
+                                <source src="imgs/genfusion.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
-  
-                    <div class="col">
+                    <div class="col-sm-9">
                         <div class='paper-title'>
                             GenFusion: Closing the Loop between Reconstruction and Generation via Videos
                         </div>
-                        <div class='paper-desc'>
-                            CVPR 2025
-                        </div>
+                        <div class="conf-badge">CVPR 2025</div>
                         <div class='paper-authors'>
                             Sibo Wu, Congrong Xu, Binbin Huang, Andreas Geiger, <b>Anpei Chen&dagger;</b>
                         </div>
-                        <div>
-                            <a href="https://genfusion.sibowu.com/">[Project page]</a>
-                            <a href="https://sibowu.com/assets/papers/GenFusion.pdf">[Paper]</a>
-                            <a href="https://github.com/Inception3D/GenFusion">[Code]</a>
+                        <div class="mt-2">
+                            <a href="https://genfusion.sibowu.com/" class="resource-link"><i class="fas fa-globe"></i> Project</a>
+                            <a href="https://sibowu.com/assets/papers/GenFusion.pdf" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://github.com/Inception3D/GenFusion" class="resource-link"><i class="fab fa-github"></i> Code</a>
                         </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                <!-- Paper Item: Ref-GS -->
+                <div class='row paper-item'>
                     <div class="col-sm-3">
-                        <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
-                            <source src="imgs/ref-gs.mp4" type="video/mp4">
-                        </video>
+                        <div class="paper-media">
+                            <video width="100%" playsinline="" loop="" preload="none" muted="">
+                                <source src="imgs/ref-gs.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
-  
-                    <div class="col">
+                    <div class="col-sm-9">
                         <div class='paper-title'>
-                            Ref-GS : Directional Factorization for 2D Gaussian Splatting
+                            Ref-GS: Directional Factorization for 2D Gaussian Splatting
                         </div>
-                        <div class='paper-desc'>
-                            CVPR 2025 
-                        </div>
+                        <div class="conf-badge">CVPR 2025</div>
                         <div class='paper-authors'>
                             Youjia Zhang, <b>Anpei Chen&dagger;</b>, Yumin Wan, Zikai Song, Junqing Yu, Yawei Luo, Wei Yang&dagger;
                         </div>
-                        <div>
-                            <a href="https://ref-gs.github.io/">[Project page]</a>
-                            <a href="https://arxiv.org/abs/2412.00905">[Paper]</a>
-                            <a href="https://ref-gs.github.io/">[Code]</a>
+                        <div class="mt-2">
+                            <a href="https://ref-gs.github.io/" class="resource-link"><i class="fas fa-globe"></i> Project</a>
+                            <a href="https://arxiv.org/abs/2412.00905" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://ref-gs.github.io/" class="resource-link"><i class="fab fa-github"></i> Code</a>
                         </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                <!-- Paper Item: Feat2GS -->
+                <div class='row paper-item'>
                     <div class="col-sm-3">
-                        <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
-                            <source src="imgs/feat2gs.mp4" type="video/mp4">
-                        </video>
+                        <div class="paper-media">
+                            <video width="100%" playsinline="" loop="" preload="none" muted="">
+                                <source src="imgs/feat2gs.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
-
-                    <div class="col">
+                    <div class="col-sm-9">
                         <div class='paper-title'>
                             Feat2GS: Probing Visual Foundation Models with Gaussian Splatting
                         </div>
-                        <div class='paper-desc'>
-                            CVPR 2025 
-                        </div>
+                        <div class="conf-badge">CVPR 2025</div>
                         <div class='paper-authors'>
                             Yue Chen, Xingyu Chen, <b>Anpei Chen</b>, Gerard Pons-Moll, Yuliang Xiu
                         </div>
-                        <div>
-                            <a href="https://fanegg.github.io/Feat2GS/">[Project page]</a>
-                            <a href="https://arxiv.org/abs/2412.09606">[Paper]</a>
-                            <a href="https://github.com/fanegg/Feat2GS">[Code]</a>
+                        <div class="mt-2">
+                            <a href="https://fanegg.github.io/Feat2GS/" class="resource-link"><i class="fas fa-globe"></i> Project</a>
+                            <a href="https://arxiv.org/abs/2412.09606" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://github.com/fanegg/Feat2GS" class="resource-link"><i class="fab fa-github"></i> Code</a>
                         </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                <!-- Paper Item: Volumetric Surfaces -->
+                <div class='row paper-item'>
                     <div class="col-sm-3">
-                        <img src='imgs/volsurfs.jpg' class='img-fluid'>
+                        <div class="paper-media">
+                            <img src='imgs/volsurfs.jpg' class='img-fluid' loading="lazy">
+                        </div>
                     </div>
-  
-                    <div class="col">
+                    <div class="col-sm-9">
                         <div class='paper-title'>
                             Volumetric Surfaces: Representing Fuzzy Geometries with Layered Meshes
                         </div>
-                        <div class='paper-desc'>
-                            CVPR 2025 
-                        </div>
+                        <div class="conf-badge">CVPR 2025</div>
                         <div class='paper-authors'>
                             Stefano Esposito, <b>Anpei Chen</b>, Christian Reiser, Samuel Rota Bulò, Lorenzo Porzi, Katja Schwarz, Christian Richardt, Michael Zollhoefer, Peter Kontschieder, Andreas Geiger
                         </div>
-                        <div>
-                            <a href="https://autonomousvision.github.io/volsurfs/">[Project page]</a>
-                            <a href="https://arxiv.org/abs/2409.02482">[Paper]</a>
-                            <a href="https://github.com/autonomousvision/volsurfs/tree/main">[Code]</a>
+                        <div class="mt-2">
+                            <a href="https://autonomousvision.github.io/volsurfs/" class="resource-link"><i class="fas fa-globe"></i> Project</a>
+                            <a href="https://arxiv.org/abs/2409.02482" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://github.com/autonomousvision/volsurfs/tree/main" class="resource-link"><i class="fab fa-github"></i> Code</a>
                         </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                <!-- Paper Item: LaRa -->
+                <div class='row paper-item'>
                     <div class="col-sm-3">
-                        <img src='imgs/lara.gif' class='img-fluid'>
+                        <div class="paper-media">
+                            <img src='imgs/lara.gif' class='img-fluid' loading="lazy">
+                        </div>
                     </div>
-  
-                    <div class="col">
+                    <div class="col-sm-9">
                         <div class='paper-title'>
                             LaRa: Efficient Large-Baseline Radiance Fields
                         </div>
-                        <div class='paper-desc'>
-                            ECCV 2024 
-                        </div>
+                        <div class="conf-badge">ECCV 2024</div>
                         <div class='paper-authors'>
                             <b>Anpei Chen</b>, Haofei Xu, Stefano Esposito, Siyu Tang, Andreas Geiger
                         </div>
-                        <div>
-                            <a href="https://apchenstu.github.io/LaRa/">[Project page]</a>
-                            <a href="https://arxiv.org/abs/2407.04699">[Paper]</a>
-                            <a href="https://github.com/autonomousvision/LaRa">[Code]</a>
+                        <div class="mt-2">
+                            <a href="https://apchenstu.github.io/LaRa/" class="resource-link"><i class="fas fa-globe"></i> Project</a>
+                            <a href="https://arxiv.org/abs/2407.04699" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://github.com/autonomousvision/LaRa" class="resource-link"><i class="fab fa-github"></i> Code</a>
                         </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                <!-- Paper Item: 2DGS -->
+                <div class='row paper-item'>
                     <div class="col-sm-3">
-                        <img src='imgs/2dgs.jpeg' class='img-fluid'>
+                        <div class="paper-media">
+                            <img src='imgs/2dgs.jpeg' class='img-fluid' loading="lazy">
+                        </div>
                     </div>
-  
-                    <div class="col">
+                    <div class="col-sm-9">
                         <div class='paper-title'>
-                            2DGS: 2d gaussian splatting for geometrically accurate radiance fields
+                            2DGS: 2D Gaussian Splatting for Geometrically Accurate Radiance Fields
                         </div>
-                        <div class='paper-desc'>
-                            SIGGRAPH 2024 
-                        </div>
+                        <div class="conf-badge highlight">SIGGRAPH 2024 (Most influential SIG'24 papers #1)</div>
                         <div class='paper-authors'>
                             Binbin Huang, Zehao Yu, <b>Anpei Chen</b>, Andreas Geiger, Shenghua Gao
                         </div>
-                        <div>
-                            <a href="https://surfsplatting.github.io/">[Project page]</a>
-                            <a href="https://arxiv.org/abs/2403.17888">[Paper]</a>
-                            <a href="https://github.com/hbb1/2d-gaussian-splatting">[Code]</a>
+                        <div class="mt-2">
+                            <a href="https://surfsplatting.github.io/" class="resource-link"><i class="fas fa-globe"></i> Project</a>
+                            <a href="https://arxiv.org/abs/2403.17888" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://github.com/hbb1/2d-gaussian-splatting" class="resource-link"><i class="fab fa-github"></i> Code</a>
                         </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
-                  <div class="col-sm-3">
-                        <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
-                            <source src="imgs/nelf-pro.mp4" type="video/mp4">
-                        </video>
+                <!-- Paper Item: NeLF-Pro -->
+                <div class='row paper-item'>
+                    <div class="col-sm-3">
+                        <div class="paper-media">
+                            <video width="100%" playsinline="" loop="" preload="none" muted="">
+                                <source src="imgs/nelf-pro.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
-
-                    <div class="col">
+                    <div class="col-sm-9">
                         <div class='paper-title'>
                             NeLF-Pro: Neural Light Field Probes
                         </div>
-                        <div class='paper-desc'>
-                            CVPR 2024 
-                       </div>
+                        <div class="conf-badge">CVPR 2024</div>
                         <div class='paper-authors'>
                             Zinuo You, Andreas Geiger, <b>Anpei Chen&dagger;</b>
                         </div>
-                        <div>
-                            <a href="https://sinoyou.github.io/nelf-pro/">[Project page]</a>
-                            <a href="https://arxiv.org/abs/2312.13328">[Paper]</a>
-                            <a href="https://github.com/sinoyou/nelf-pro">[Code]</a>
+                        <div class="mt-2">
+                            <a href="https://sinoyou.github.io/nelf-pro/" class="resource-link"><i class="fas fa-globe"></i> Project</a>
+                            <a href="https://arxiv.org/abs/2312.13328" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://github.com/sinoyou/nelf-pro" class="resource-link"><i class="fab fa-github"></i> Code</a>
                         </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
-                  <div class="col-sm-3">
-                        <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
-                            <source src="imgs/mipSplatting.mp4" type="video/mp4">
-                        </video>
+                <!-- Paper Item: Mip-Splatting -->
+                <div class='row paper-item'>
+                    <div class="col-sm-3">
+                        <div class="paper-media">
+                            <video width="100%" playsinline="" loop="" preload="none" muted="">
+                                <source src="imgs/mipSplatting.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
-
-                    <div class="col">
+                    <div class="col-sm-9">
                         <div class='paper-title'>
                             Mip-Splatting: Alias-free 3D Gaussian Splatting
                         </div>
-                        <div class='paper-desc'>
-                            CVPR 2024 <b class="highlight-color">(Oral, Best student paper)</b>
-                       </div>
+                        <div class="conf-badge highlight">CVPR 2024 (Oral, Best Student Paper)</div>
                         <div class='paper-authors'>
                             Zehao Yu, <b>Anpei Chen&dagger;</b>, Binbin Huang, Torsten Sattler, Andreas Geiger
                         </div>
-                        <div>
-                            <a href="https://niujinshuchong.github.io/mip-splatting/">[Project page]</a>
-                            <a href="https://arxiv.org/abs/2311.16493">[Paper]</a>
-                            <a href="https://github.com/autonomousvision/mip-splatting">[Code]</a>
+                        <div class="mt-2">
+                            <a href="https://niujinshuchong.github.io/mip-splatting/" class="resource-link"><i class="fas fa-globe"></i> Project</a>
+                            <a href="https://arxiv.org/abs/2311.16493" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://github.com/autonomousvision/mip-splatting" class="resource-link"><i class="fab fa-github"></i> Code</a>
                         </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
-                  <div class="col-sm-3">
-                        <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
-                            <source src="imgs/murf.mp4" type="video/mp4">
-                        </video>
+                <!-- Paper Item: MuRF -->
+                <div class='row paper-item'>
+                    <div class="col-sm-3">
+                        <div class="paper-media">
+                            <video width="100%" playsinline="" loop="" preload="none" muted="">
+                                <source src="imgs/murf.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
-
-                    <div class="col">
+                    <div class="col-sm-9">
                         <div class='paper-title'>
                             MuRF: Multi-Baseline Radiance Fields
                         </div>
-                        <div class='paper-desc'>
-                            CVPR 2024
-                       </div>
+                        <div class="conf-badge">CVPR 2024</div>
                         <div class='paper-authors'>
-                            Haofei Xu, <b>Anpei Chen</b>, Yuedong Chen, Christos Sakaridis, Yulun Zhang, <br>
+                            Haofei Xu, <b>Anpei Chen</b>, Yuedong Chen, Christos Sakaridis, Yulun Zhang, 
                             Marc Pollefeys, Andreas Geiger*, Fisher Yu*
                         </div>
-                        <div>
-                            <a href="https://haofeixu.github.io/murf/">[Project page]</a>
-                            <a href="https://arxiv.org/abs/2312.04565">[Paper]</a>
-                            <a href="https://github.com/autonomousvision/murf">[Code]</a>
+                        <div class="mt-2">
+                            <a href="https://haofeixu.github.io/murf/" class="resource-link"><i class="fas fa-globe"></i> Project</a>
+                            <a href="https://arxiv.org/abs/2312.04565" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://github.com/autonomousvision/murf" class="resource-link"><i class="fab fa-github"></i> Code</a>
                         </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
-                  <div class="col-sm-3">
-                        <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
-                            <source src="imgs/graphdreamer.mp4" type="video/mp4">
-                        </video>
+                <!-- Paper Item: GraphDreamer -->
+                <div class='row paper-item'>
+                    <div class="col-sm-3">
+                        <div class="paper-media">
+                            <video width="100%" playsinline="" loop="" preload="none" muted="">
+                                <source src="imgs/graphdreamer.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
-
-                    <div class="col">
+                    <div class="col-sm-9">
                         <div class='paper-title'>
                             GraphDreamer: Compositional 3D Scene Synthesis from Scene Graphs
                         </div>
-                        <div class='paper-desc'>
-                            CVPR 2024
-                       </div>
+                        <div class="conf-badge">CVPR 2024</div>
                         <div class='paper-authors'>
                             Gege Gao, Weiyang Liu, <b>Anpei Chen</b>, Andreas Geiger, Bernhard Schölkopf
                         </div>
-                        <div>
-                            <a href="https://graphdreamer.github.io/">[Project page]</a>
-                            <a href="https://arxiv.org/abs/2312.00093">[Paper]</a>
-                            <a href="https://github.com/GGGHSL/GraphDreamer">[Code]</a>
+                        <div class="mt-2">
+                            <a href="https://graphdreamer.github.io/" class="resource-link"><i class="fas fa-globe"></i> Project</a>
+                            <a href="https://arxiv.org/abs/2312.00093" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://github.com/GGGHSL/GraphDreamer" class="resource-link"><i class="fab fa-github"></i> Code</a>
                         </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                <!-- Paper Item: Factor Fields -->
+                <div class='row paper-item'>
                     <div class="col-sm-3">
-                        <img src='FactorFields/img/framework.png' class='img-fluid'>
+                        <div class="paper-media">
+                            <img src='FactorFields/img/framework.png' class='img-fluid' loading="lazy">
+                        </div>
                     </div>
-
-                    <div class="col">
+                    <div class="col-sm-9">
                         <div class='paper-title'>
                             Factor Fields: A Unified Framework for Neural Fields and Beyond
                         </div>
+                        <div class="conf-badge">Paper</div>
                         <div class='paper-authors'>
                             <b>Anpei Chen</b>, Zexiang Xu, Xinyue Wei, Siyu Tang, Hao Su, Andreas Geiger
                         </div>
-                        <div>
-                            <a href="https://apchenstu.github.io/FactorFields/">[Project page]</a>
-                            <a href="https://apchenstu.github.io/FactorFields/Dictionary_Fields.pdf">[Paper]</a>
-                            <a href="https://github.com/autonomousvision/factor-fields">[Code]</a>
+                        <div class="mt-2">
+                            <a href="https://apchenstu.github.io/FactorFields/" class="resource-link"><i class="fas fa-globe"></i> Project</a>
+                            <a href="https://apchenstu.github.io/FactorFields/Dictionary_Fields.pdf" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://github.com/autonomousvision/factor-fields" class="resource-link"><i class="fab fa-github"></i> Code</a>
                         </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                <!-- Paper Item: Dictionary Fields -->
+                <div class='row paper-item'>
                     <div class="col-sm-3">
-                        <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
-                            <source src="imgs/DiF.mp4" type="video/mp4">
-                        </video>
+                        <div class="paper-media">
+                            <video width="100%" playsinline="" loop="" preload="none" muted="">
+                                <source src="imgs/DiF.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
-
-                    <div class="col">
+                    <div class="col-sm-9">
                         <div class='paper-title'>
                             Dictionary Fields: Learning a Neural Basis Decomposition
                         </div>
-                        <div class='paper-desc'>
-                             SIGGRAPH 2023 <b class="highlight-color">(Journal Track)</b>
-                        </div>
+                        <div class="conf-badge">SIGGRAPH 2023 (Journal Track)</div>
                         <div class='paper-authors'>
                             <b>Anpei Chen</b>, Zexiang Xu, Xinyue Wei, Siyu Tang, Hao Su, Andreas Geiger
                         </div>
-                        <div>
-                            <a href="https://apchenstu.github.io/FactorFields/">[Project page]</a>
-                            <a href="https://arxiv.org/abs/2302.01226">[Paper]</a>
-                            <a href="https://github.com/autonomousvision/factor-fields">[Code]</a>
+                        <div class="mt-2">
+                            <a href="https://apchenstu.github.io/FactorFields/" class="resource-link"><i class="fas fa-globe"></i> Project</a>
+                            <a href="https://arxiv.org/abs/2302.01226" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://github.com/autonomousvision/factor-fields" class="resource-link"><i class="fab fa-github"></i> Code</a>
                         </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                 <!-- Paper Item: SSDNeRF -->
+                 <div class='row paper-item'>
                     <div class="col-sm-3">
-                        <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
-                            <source src="imgs/SSDNeRF.mp4" type="video/mp4">
-                        </video>
+                        <div class="paper-media">
+                            <video width="100%" playsinline="" loop="" preload="none" muted="">
+                                <source src="imgs/SSDNeRF.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
-
-                    <div class="col">
+                    <div class="col-sm-9">
                         <div class='paper-title'>
                             Single-Stage Diffusion NeRF: A Unified Approach to 3D Generation and Reconstruction
                         </div>
-                        <div class='paper-desc'>
-                             ICCV 2023
-                        </div>
+                        <div class="conf-badge">ICCV 2023</div>
                         <div class='paper-authors'>
                             Hansheng Chen, Jiatao Gu, <b>Anpei Chen</b>, Wei Tian, Zhuowen Tu, Lingjie Liu, Hao Su
                         </div>
-                        <div>
-                            <a href="https://lakonik.github.io/ssdnerf/">[Project page]</a>
-                            <a href="https://arxiv.org/abs/2304.06714">[Paper]</a>
-                            <a href="https://github.com/Lakonik/SSDNeRF">[Code]</a>
+                        <div class="mt-2">
+                            <a href="https://lakonik.github.io/ssdnerf/" class="resource-link"><i class="fas fa-globe"></i> Project</a>
+                            <a href="https://arxiv.org/abs/2304.06714" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://github.com/Lakonik/SSDNeRF" class="resource-link"><i class="fab fa-github"></i> Code</a>
                         </div>
                     </div>
                 </div>
 
-               <div class='row vspace-top'>
+                <!-- Paper Item: SDFStudio -->
+                <div class='row paper-item'>
                     <div class="col-sm-3">
-                        <img src='imgs/SDFStudio.png' class='img-fluid'>
+                        <div class="paper-media">
+                            <img src='imgs/SDFStudio.png' class='img-fluid' loading="lazy">
+                        </div>
                     </div>
-
-                    <div class="col">
+                    <div class="col-sm-9">
                         <div class='paper-title'>
                             SDFStudio: A Unified Framework for Surface Reconstruction
                         </div>
-                        <div class='paper-desc'>
-                             OpenSource Project
-                             <a class="highlight-color"> <b class="highlight-color">(1.5K+ stars)</b></a>
-                        </div>
+                        <div class="conf-badge highlight">OpenSource Project (1.5K+ stars)</div>
                         <div class='paper-authors'>
-                             Zehao Yu, <b>Anpei Chen</b>, Bozidar Antic, Songyou Peng, Apratim Bhattacharyya,<br>
+                             Zehao Yu, <b>Anpei Chen</b>, Bozidar Antic, Songyou Peng, Apratim Bhattacharyya,
                              Michael Niemeyer, Siyu Tang, Torsten Sattler, Andreas Geiger
                         </div>
-                        <div>
-                            <a href="https://autonomousvision.github.io/sdfstudio/">[Project page]</a>
-                            <a href="https://github.com/autonomousvision/sdfstudio">[Code]</a>
-                            <a href="https://github.com/autonomousvision/sdfstudio/blob/master/docs/sdfstudio-methods.md">[Documentation]</a>
-                            <a href="https://github.com/autonomousvision/sdfstudio/blob/master/docs/sdfstudio-data.md">[Dataset]</a>
+                        <div class="mt-2">
+                            <a href="https://autonomousvision.github.io/sdfstudio/" class="resource-link"><i class="fas fa-globe"></i> Project</a>
+                            <a href="https://github.com/autonomousvision/sdfstudio" class="resource-link"><i class="fab fa-github"></i> Code</a>
+                            <a href="https://github.com/autonomousvision/sdfstudio/blob/master/docs/sdfstudio-methods.md" class="resource-link"><i class="fas fa-book"></i> Docs</a>
                         </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                <!-- Paper Item: NeRFPlayer -->
+                <div class='row paper-item'>
                     <div class="col-sm-3">
-                        <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
-                            <source src="imgs/NeRFPlayer.mp4" type="video/mp4">
-                        </video>
+                        <div class="paper-media">
+                            <video width="100%" playsinline="" loop="" preload="none" muted="">
+                                <source src="imgs/NeRFPlayer.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
-
-                    <div class="col">
+                    <div class="col-sm-9">
                         <div class='paper-title'>
                             NeRFPlayer: A Streamable Dynamic Scene Representation with Decomposed Neural Radiance Fields
                         </div>
-                        <div class='paper-desc'>
-                             IEEE VR 2023 <b class="highlight-color">(TVCG Journal Track)</b>
-                        </div>
+                        <div class="conf-badge">IEEE VR 2023 (TVCG Journal Track)</div>
                         <div class='paper-authors'>
                              Liangchen Song, <b>Anpei Chen</b>, Zhong Li, Zhang Chen, Lele Chen, Junsong Yuan, Yi Xu, Andreas Geiger
                         </div>
-                        <div>
-                            <a href="https://lsongx.github.io/projects/nerfplayer.html">[Project page]</a>
-                            <a href="https://arxiv.org/pdf/2210.15947">[Paper]</a>
-                            <a href="https://lsongx.github.io/projects/nerfplayer.html">[Code]</a>
-                            <a href="https://github.com/nerfstudio-project/nerfstudio/tree/main/nerfstudio/fields">[NerfStudio]</a>
+                        <div class="mt-2">
+                            <a href="https://lsongx.github.io/projects/nerfplayer.html" class="resource-link"><i class="fas fa-globe"></i> Project</a>
+                            <a href="https://arxiv.org/pdf/2210.15947" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://lsongx.github.io/projects/nerfplayer.html" class="resource-link"><i class="fab fa-github"></i> Code</a>
                         </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                <!-- Paper Item: TensoRF -->
+                <div class='row paper-item'>
                     <div class="col-sm-3">
-                        <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
-                            <source src="imgs/tensorf.mp4" type="video/mp4">
-                        </video>
+                        <div class="paper-media">
+                            <video width="100%" playsinline="" loop="" preload="none" muted="">
+                                <source src="imgs/tensorf.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
-
-                    <div class="col">
+                    <div class="col-sm-9">
                         <div class='paper-title'>
                             TensoRF: Tensorial Radiance Fields
                         </div>
-                        <div class='paper-desc'>
-			                 ECCV 2022 
-                             <b class="highlight-color">(Three strong accept, </b>  <a href="https://www.paperdigest.org/2023/04/most-influential-eccv-papers-2023-04/" class="highlight-color"> <b>most influential ECCV'22 papers #2)</b></a>
-                             
-                        </div>
+                        <div class="conf-badge highlight">ECCV 2022 (Most influential ECCV'22 papers #2)</div>
                         <div class='paper-authors'>
                              <b>Anpei Chen*</b>, Zexiang Xu*, Andreas Geiger, Jingyi Yu, Hao Su
                         </div>
-                        <div>
-                            <a href="https://apchenstu.github.io/TensoRF">[Project page]</a>
-                            <a href="https://arxiv.org/abs/2203.09517">[Paper]</a>
-                            <a href="TensoRF/review.pdf">[Review]</a>
-                            <a href="TensoRF/rebuttal.pdf">[Rebuttal]</a>
-                            <a href="TensoRF/meta-review.pdf">[Meta-review]</a>
-                            <a href="https://github.com/apchenstu/TensoRF">[Code]</a>
-                            <a href="https://github.com/nerfstudio-project/nerfstudio/tree/main/nerfstudio/fields">[NerfStudio]</a>
+                        <div class="mt-2">
+                            <a href="https://apchenstu.github.io/TensoRF" class="resource-link"><i class="fas fa-globe"></i> Project</a>
+                            <a href="https://arxiv.org/abs/2203.09517" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://github.com/apchenstu/TensoRF" class="resource-link"><i class="fab fa-github"></i> Code</a>
                         </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                <!-- Paper Item: ICARUS -->
+                <div class='row paper-item'>
                     <div class="col-sm-3">
-                        <img src='imgs/ICARUS.png' class='img-fluid'>
+                        <div class="paper-media">
+                            <img src='imgs/ICARUS.png' class='img-fluid' loading="lazy">
+                        </div>
                     </div>
-
-                    <div class="col">
+                    <div class="col-sm-9">
                         <div class='paper-title'>
                             ICARUS: A Lightweight Neural Plenoptic Rendering Architecture
                         </div>
-                        <div class='paper-desc'>
-                             Siggraph Asia 2022 <b class="highlight-color">(TOG Journal Track)</b>
-                        </div>
+                        <div class="conf-badge">SIGGRAPH Asia 2022 (TOG Journal Track)</div>
                         <div class='paper-authors'>
-                             Chaolin Rao, Huangjie Yu, Haochuan Wan, Jindong Zhou, Yueyang Zheng, Yu Ma, <br>
+                             Chaolin Rao, Huangjie Yu, Haochuan Wan, Jindong Zhou, Yueyang Zheng, Yu Ma, 
                              <b>Anpei Chen</b>, Minye Wu, Binzhe Yuan, Pingqiang Zhou, Xin Lou, Jingyi Yu
                         </div>
-                        <div>
-                            <a href="https://dl.acm.org/doi/abs/10.1145/3550454.3555505">[Paper]</a>
+                        <div class="mt-2">
+                            <a href="https://dl.acm.org/doi/abs/10.1145/3550454.3555505" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
                         </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                <!-- Paper Item: PREF -->
+                <div class='row paper-item'>
                     <div class="col-sm-3">
-                        <img src='imgs/PREF.gif' class='img-fluid'>
+                        <div class="paper-media">
+                            <img src='imgs/PREF.gif' class='img-fluid' loading="lazy">
+                        </div>
                     </div>
-
-                    <div class="col">
+                    <div class="col-sm-9">
                         <div class='paper-title'>
                             PREF: Phasorial Embedding Fields for Compact Neural Representation
                         </div>
-                        <div class='paper-desc'>
-                             Arxiv
-                        </div>
+                        <div class="conf-badge">Arxiv</div>
                         <div class='paper-authors'>
                              Binbin Huang, Xinhao Yan, <b>Anpei Chen</b>, Shenghua Gao, Jingyi Yu
                         </div>
-                        <div>
-                            <a href="https://arxiv.org/abs/2205.13524">[Paper]</a>
-                            <a href="https://github.com/hbb1/PREF">[Code]</a>
+                        <div class="mt-2">
+                            <a href="https://arxiv.org/abs/2205.13524" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://github.com/hbb1/PREF" class="resource-link"><i class="fab fa-github"></i> Code</a>
                         </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                <!-- Paper Item: Anisotropic Fourier -->
+                <div class='row paper-item'>
                     <div class="col-sm-3">
-                        <img src='imgs/AAAI2022.png' class='img-fluid'>
+                        <div class="paper-media">
+                            <img src='imgs/AAAI2022.png' class='img-fluid' loading="lazy">
+                        </div>
                     </div>
-
-                    <div class="col">
+                    <div class="col-sm-9">
                         <div class='paper-title'>
                             Anisotropic Fourier Features for Image-Based Rendering and Relighting
                         </div>
-                        <div class='paper-desc'>
-			                 AAAI 2022 <b class="highlight-color">(Oral)</b> 
-                        </div>
+                        <div class="conf-badge highlight">AAAI 2022 (Oral)</div>
                         <div class='paper-authors'>
                             Huangjie Yu, <b>Anpei Chen</b>, Xin Chen, Lan Xu, Ziyu Shao, Jingyi Yu
                         </div>
-                        <div>
-                            <a href="https://aaai-2022.virtualchair.net/poster_aaai2220">[Project page]</a>
+                        <div class="mt-2">
+                            <a href="https://aaai-2022.virtualchair.net/poster_aaai2220" class="resource-link"><i class="fas fa-globe"></i> Project</a>
                         </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                <!-- Paper Item: MVSNeRF -->
+                <div class='row paper-item'>
                     <div class="col-sm-3">
-                        <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
-                            <source src="imgs/mvsnerf2.mp4" type="video/mp4">
-                        </video>
+                        <div class="paper-media">
+                            <video width="100%" playsinline="" loop="" preload="none" muted="">
+                                <source src="imgs/mvsnerf2.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
-
-                    <div class="col">
+                    <div class="col-sm-9">
                         <div class='paper-title'>
                             MVSNeRF: Fast Generalizable Radiance Field Reconstruction from Multi-View Stereo
                         </div>
-                        <div class='paper-desc'>
-			                 ICCV 2021
-                        </div>
+                        <div class="conf-badge">ICCV 2021</div>
                         <div class='paper-authors'>
                             <b>Anpei Chen*</b>, Zexiang Xu*, Fuqiang Zhao, Xiaoshuai Zhang, Fanbo Xiang, Jingyi Yu, Hao Su
                         </div>
-                        <div>
-                            <a href="https://apchenstu.github.io/mvsnerf">[Project page]</a>
-                            <a href="https://arxiv.org/abs/2103.15595">[Paper]</a>
-                            <a href="https://github.com/apchenstu/mvsnerf">[Code]</a>
+                        <div class="mt-2">
+                            <a href="https://apchenstu.github.io/mvsnerf" class="resource-link"><i class="fas fa-globe"></i> Project</a>
+                            <a href="https://arxiv.org/abs/2103.15595" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://github.com/apchenstu/mvsnerf" class="resource-link"><i class="fab fa-github"></i> Code</a>
                         </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                 <!-- Paper Item: GNeRF -->
+                 <div class='row paper-item'>
                     <div class="col-sm-3">
-                        <img src='imgs/GNeRF.png' class='img-fluid'>
+                        <div class="paper-media">
+                            <img src='imgs/GNeRF.png' class='img-fluid' loading="lazy">
+                        </div>
                     </div>
-
-                    <div class="col">
+                    <div class="col-sm-9">
                         <div class='paper-title'>
                             GNeRF: GAN-based Neural Radiance Field without Posed Camera
                         </div>
-                        <div class='paper-desc'>
-                       ICCV 2021 <b class="highlight-color">(Oral)</b>
-                        </div>
+                        <div class="conf-badge highlight">ICCV 2021 (Oral)</div>
                         <div class='paper-authors'>
                             Quan Meng, <b>Anpei Chen</b>, Haimin Luo, Minye Wu, Hao Su, Lan Xu, Xuming He, Jingyi Yu
                         </div>
-                        <div>
-                            <a href="https://arxiv.org/abs/2103.15606">[Paper]</a>
-                            <a href="https://github.com/MQ66/gnerf">[Code]</a>
-                            <a href="https://www.youtube.com/watch?v=pXnY9uSmEsw">[Video]</a>
+                        <div class="mt-2">
+                            <a href="https://arxiv.org/abs/2103.15606" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://github.com/MQ66/gnerf" class="resource-link"><i class="fab fa-github"></i> Code</a>
+                            <a href="https://www.youtube.com/watch?v=pXnY9uSmEsw" class="resource-link"><i class="fab fa-youtube"></i> Video</a>
                         </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                <!-- Paper Item: ConvNeRF -->
+                <div class='row paper-item'>
                     <div class="col-sm-3">
-                        <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
-                        <source src="imgs/ConvNeRF.mp4" type="video/mp4">
-                        </video>
+                        <div class="paper-media">
+                            <video width="100%" playsinline="" loop="" preload="none" muted="">
+                                <source src="imgs/ConvNeRF.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
-                    
-                    <div class="col">
+                    <div class="col-sm-9">
                         <div class='paper-title'>
                             ConvNeRF: Convolutional Neural Opacity Radiance Fields
                         </div>
-                        <div class='paper-desc'>
-                       ICCP 2021
-                        </div>
+                        <div class="conf-badge">ICCP 2021</div>
                         <div class='paper-authors'>
                             Haimin Luo, <b>Anpei Chen</b>, Qixuan Zhang, Bai Pang, Minye Wu, Lan Xu, Jingyi Yu
                         </div>
-                        <div>
-                            <a href="https://arxiv.org/abs/2104.01772">[Paper]</a>
+                        <div class="mt-2">
+                            <a href="https://arxiv.org/abs/2104.01772" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
                         </div>
                     </div>
                 </div>
-                
-                <div class='row vspace-top'>
-                    <div class="col-sm-3">
-                        <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
-                        <source src="imgs/sofgan.mp4" type="video/mp4">
-                        </video>
-                    </div>
 
-                    <div class="col">
-                      <div class='paper-title'>
-                          SofGAN: A Portrait Image Generator with Dynamic Styling
-                      </div>
-                      <div class='paper-desc'>
-                          Transactions on Graphics (TOG)
-                      </div>
-                      <div class='paper-authors'>
-                          <b>Anpei Chen*</b>, Ruiyang Liu*, Ling Xie, Zhang Chen, Hao Su, Jingyi Yu
-                      </div>
-                      <div>
-                            <a href="https://apchenstu.github.io/sofgan">[Project page]</a>
-                            <a href="https://arxiv.org/abs/2007.03780">[Paper]</a>
-                            <a href="https://github.com/apchenstu/sofgan">[Code]</a>
-                      </div>
+                <!-- Paper Item: SofGAN -->
+                <div class='row paper-item'>
+                    <div class="col-sm-3">
+                        <div class="paper-media">
+                            <video width="100%" playsinline="" loop="" preload="none" muted="">
+                                <source src="imgs/sofgan.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class='paper-title'>
+                            SofGAN: A Portrait Image Generator with Dynamic Styling
+                        </div>
+                        <div class="conf-badge">TOG 2021</div>
+                        <div class='paper-authors'>
+                            <b>Anpei Chen*</b>, Ruiyang Liu*, Ling Xie, Zhang Chen, Hao Su, Jingyi Yu
+                        </div>
+                        <div class="mt-2">
+                            <a href="https://apchenstu.github.io/sofgan" class="resource-link"><i class="fas fa-globe"></i> Project</a>
+                            <a href="https://arxiv.org/abs/2007.03780" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://github.com/apchenstu/sofgan" class="resource-link"><i class="fab fa-github"></i> Code</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                <!-- Paper Item: Relighting -->
+                <div class='row paper-item'>
                     <div class="col-sm-3">
-                        <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
-                            <source src="imgs/relighting.mp4" type="video/mp4">
-                        </video>
+                        <div class="paper-media">
+                            <video width="100%" playsinline="" loop="" preload="none" muted="">
+                                <source src="imgs/relighting.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
-
-                    <div class="col">
-                      <div class='paper-title'>
-                          A neural rendering framework for free-viewpoint relighting
-                      </div>
-                      <div class='paper-desc'>
-                          CVPR 2020
-                      </div>
-                      <div class='paper-authors'>
-                          Zhang Chen, <b>Anpei Chen</b>, Guli Zhang, Chengyuan Wang, Yu Ji, Kiriakos N Kutulakos, Jingyi Yu
-                      </div>
-                      <div>
-                            <a href="https://arxiv.org/abs/1911.11530">[Paper]</a>
-                            <a href="https://github.com/LansburyCH/relightable-nr">[Code]</a>
-                      </div>
+                    <div class="col-sm-9">
+                        <div class='paper-title'>
+                            A neural rendering framework for free-viewpoint relighting
+                        </div>
+                        <div class="conf-badge">CVPR 2020</div>
+                        <div class='paper-authors'>
+                            Zhang Chen, <b>Anpei Chen</b>, Guli Zhang, Chengyuan Wang, Yu Ji, Kiriakos N Kutulakos, Jingyi Yu
+                        </div>
+                        <div class="mt-2">
+                            <a href="https://arxiv.org/abs/1911.11530" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://github.com/LansburyCH/relightable-nr" class="resource-link"><i class="fab fa-github"></i> Code</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                <!-- Paper Item: Facial Details -->
+                <div class='row paper-item'>
                     <div class="col-sm-3">
-                        <img src='imgs/facial_detail.png' class='img-fluid'>
+                        <div class="paper-media">
+                            <img src='imgs/facial_detail.png' class='img-fluid' loading="lazy">
+                        </div>
                     </div>
-
-                    <div class="col">
-                      <div class='paper-title'>
-                          Photo-Realistic Facial Details Synthesis from Single Image
-                      </div>
-                      <div class='paper-desc'>
-                          ICCV 2019 <b class="highlight-color">(Oral)</b>
-                      </div>
-                      <div class='paper-authors'>
-                          <b>Anpei Chen</b>, Zhang Chen, Guli Zhang, Ziheng Zhang, Kenny Mitchell, Jingyi Yu
-                      </div>
-                      <div>
-                            <a href="https://apchenstu.github.io/facial_details/">[Project page]</a>
-                            <a href="https://arxiv.org/abs/1903.10873">[Paper]</a>
-                            <a href="https://github.com/apchenstu/Facial_Details_Synthesis">[Code]</a>
-                      </div>
+                    <div class="col-sm-9">
+                        <div class='paper-title'>
+                            Photo-Realistic Facial Details Synthesis from Single Image
+                        </div>
+                        <div class="conf-badge highlight">ICCV 2019 (Oral)</div>
+                        <div class='paper-authors'>
+                            <b>Anpei Chen</b>, Zhang Chen, Guli Zhang, Ziheng Zhang, Kenny Mitchell, Jingyi Yu
+                        </div>
+                        <div class="mt-2">
+                            <a href="https://apchenstu.github.io/facial_details/" class="resource-link"><i class="fas fa-globe"></i> Project</a>
+                            <a href="https://arxiv.org/abs/1903.10873" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://github.com/apchenstu/Facial_Details_Synthesis" class="resource-link"><i class="fab fa-github"></i> Code</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                 <!-- Paper Item: 3D Face -->
+                 <div class='row paper-item'>
                     <div class="col-sm-3">
-                        <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
-                            <source src="imgs/3d_face.mp4" type="video/mp4">
-                        </video>
+                        <div class="paper-media">
+                            <video width="100%" playsinline="" loop="" preload="none" muted="">
+                                <source src="imgs/3d_face.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
-
-
-                    <div class="col">
-                      <div class='paper-title'>
-                          Sparse photometric 3d face reconstruction guided by morphable models
-                      </div>
-                      <div class='paper-desc'>
-                          CVPR 2019
-                      </div>
-                      <div class='paper-authors'>
-                          Xuan Cao, Zhang Chen, <b>Anpei Chen</b>, Xin Chen, Shiying Li, Jingyi Yu
-                      </div>
-                      <div>
-                            <a href="https://arxiv.org/abs/1711.10870">[Paper]</a>
-                      </div>
+                    <div class="col-sm-9">
+                        <div class='paper-title'>
+                            Sparse photometric 3d face reconstruction guided by morphable models
+                        </div>
+                        <div class="conf-badge">CVPR 2019</div>
+                        <div class='paper-authors'>
+                            Xuan Cao, Zhang Chen, <b>Anpei Chen</b>, Xin Chen, Shiying Li, Jingyi Yu
+                        </div>
+                        <div class="mt-2">
+                            <a href="https://arxiv.org/abs/1711.10870" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                <!-- Paper Item: Amodal -->
+                <div class='row paper-item'>
                     <div class="col-sm-3">
-                        <img src='imgs/amodal.png' class='img-fluid'>
+                        <div class="paper-media">
+                             <img src='imgs/amodal.png' class='img-fluid' loading="lazy">
+                        </div>
                     </div>
-
-                    <div class="col">
-                      <div class='paper-title'>
-                          Learning semantics-aware distance map with semantics layering network for amodal instance segmentation
-                      </div>
-                      <div class='paper-desc'>
-                          ACM MM 2019
-                      </div>
-                      <div class='paper-authors'>
-                          Ziheng Zhang*, <b>Anpei Chen*</b>, Ling Xie, Jingyi Yu, Shenghua Gao
-                      </div>
-                      <div>
-                            <a href="https://arxiv.org/abs/1905.12898">[Paper]</a>
-                            <a href="https://github.com/apchenstu/SLN-Amodal">[Code]</a>
-                      </div>
+                    <div class="col-sm-9">
+                        <div class='paper-title'>
+                            Learning semantics-aware distance map with semantics layering network for amodal instance segmentation
+                        </div>
+                        <div class="conf-badge">ACM MM 2019</div>
+                        <div class='paper-authors'>
+                            Ziheng Zhang*, <b>Anpei Chen*</b>, Ling Xie, Jingyi Yu, Shenghua Gao
+                        </div>
+                        <div class="mt-2">
+                            <a href="https://arxiv.org/abs/1905.12898" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                            <a href="https://github.com/apchenstu/SLN-Amodal" class="resource-link"><i class="fab fa-github"></i> Code</a>
+                        </div>
                     </div>
                 </div>
 
-               <div class='row vspace-top'>
+                <!-- Paper Item: Gigapixel -->
+                <div class='row paper-item'>
                     <div class="col-sm-3">
-                        <img src='imgs/refocusable.jpg' class='img-fluid'>
+                        <div class="paper-media">
+                             <img src='imgs/refocusable.jpg' class='img-fluid' loading="lazy">
+                        </div>
                     </div>
-
-                    <div class="col">
-                      <div class='paper-title'>
-                          Refocusable Gigapixel Panoramas for Immersive VR Experiences
-                      </div>
-                      <div class='paper-desc'>
-                          TVCG 2019
-                      </div>
-                      <div class='paper-authors'>
-                          Wentao Lyu, Peng Ding, Yingliang Zhang, <b>Anpei Chen</b>, Minye Wu, Shu Yin, Jingyi Yu
-                      </div>
-                      <div>
-                            <a href="https://ieeexplore.ieee.org/iel7/2945/4359476/08827949.pdf">[Paper]</a>
-                      </div>
+                    <div class="col-sm-9">
+                        <div class='paper-title'>
+                            Refocusable Gigapixel Panoramas for Immersive VR Experiences
+                        </div>
+                        <div class="conf-badge">TVCG 2019</div>
+                        <div class='paper-authors'>
+                            Wentao Lyu, Peng Ding, Yingliang Zhang, <b>Anpei Chen</b>, Minye Wu, Shu Yin, Jingyi Yu
+                        </div>
+                        <div class="mt-2">
+                            <a href="https://ieeexplore.ieee.org/iel7/2945/4359476/08827949.pdf" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                        </div>
                     </div>
                 </div>
 
-               <div class='row vspace-top'>
+                 <!-- Paper Item: DSLF -->
+                 <div class='row paper-item'>
                     <div class="col-sm-3">
-                        <img src='imgs/dslf.png' class='img-fluid'>
+                        <div class="paper-media">
+                             <img src='imgs/dslf.png' class='img-fluid' loading="lazy">
+                        </div>
                     </div>
-
-                    <div class="col">
-                      <div class='paper-title'>
-                          Deep surface light fields
-                      </div>
-                      <div class='paper-desc'>
-                          I3D 2018
-                      </div>
-                      <div class='paper-authors'>
-                          <b>Anpei Chen</b>, Minye Wu, Yingliang Zhang, Nianyi Li, Jie Lu, Shenghua Gao, Jingyi Yu
-                      </div>
-                      <div>
-                            <a href="https://apchenstu.github.io/dslf">[Project page]</a>
-                            <a href="https://arxiv.org/abs/1810.06514">[Paper]</a>
-                      </div>
+                    <div class="col-sm-9">
+                        <div class='paper-title'>
+                            Deep surface light fields
+                        </div>
+                        <div class="conf-badge">I3D 2018</div>
+                        <div class='paper-authors'>
+                            <b>Anpei Chen</b>, Minye Wu, Yingliang Zhang, Nianyi Li, Jie Lu, Shenghua Gao, Jingyi Yu
+                        </div>
+                        <div class="mt-2">
+                            <a href="https://apchenstu.github.io/dslf" class="resource-link"><i class="fas fa-globe"></i> Project</a>
+                            <a href="https://arxiv.org/abs/1810.06514" class="resource-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
 
+    <div id='footer'>
+        <div class="container">
+            &copy; 2025 Anpei Chen. All rights reserved.
+        </div>
+    </div>
 
-
-                
-
-    <div id='footer' class='vspace-top'>
-    <div>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <!-- jQuery & Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" defer></script>
+    <script src="js/bootstrap.min.js" defer></script>
+    
+    <!-- Lazy loading and autoplay for videos -->
+    <script>
+        // Lazy load and autoplay videos when they enter viewport
+        document.addEventListener('DOMContentLoaded', function() {
+            const videos = document.querySelectorAll('video[preload="none"]');
+            
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const video = entry.target;
+                    if (entry.isIntersecting) {
+                        // Load and play video when it enters viewport
+                        video.load();
+                        video.play().catch(e => {
+                            // Autoplay may fail, ignore silently
+                            console.log('Autoplay prevented for:', video);
+                        });
+                    } else {
+                        // Pause video when it leaves viewport
+                        video.pause();
+                    }
+                });
+            }, {
+                rootMargin: '50px' // Start loading 50px before entering viewport
+            });
+            
+            videos.forEach(video => {
+                videoObserver.observe(video);
+            });
+        });
+    </script>
 </body>
-
 </html>
