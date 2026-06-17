@@ -15,7 +15,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap; /* 关键：确保字体加载期间文字可见 */
-  src: url('inter-v20-latin-regular.woff2') format('woff2');
+  src: url('inter-v20-latin-500.woff2') format('woff2');
 }
 
 /* inter-500 - latin */
@@ -44,4 +44,3 @@
   font-display: swap; /* 关键：确保字体加载期间文字可见 */
   src: url('inter-v20-latin-700.woff2') format('woff2');
 }
-

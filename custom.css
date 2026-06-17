@@ -1,257 +1,335 @@
 :root {
-    --primary-color: #2c3e50;
-    --accent-color: #e28353; /* Keep your original accent color */
-    --bg-color: #ffffff;
-    --text-color: #4a5568;
-    --light-bg: #f8f9fa;
-    --border-radius: 12px;
+    --primary-color: #243447;
+    --accent-color: #d96f32;
+    --accent-soft: #fff1e8;
+    --link-color: #246b70;
+    --bg-color: #fbfbf8;
+    --surface-color: #ffffff;
+    --text-color: #3f4a56;
+    --muted-color: #6f7b87;
+    --rule-color: #e7e1d8;
+    --soft-rule: #eef0ec;
+    --media-bg: #e8ece8;
+    --border-radius: 8px;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
-    background-color: var(--bg-color);
+    background: var(--bg-color);
     color: var(--text-color);
-    line-height: 1.6;
+    line-height: 1.62;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
 
 a {
-    color: var(--primary-color);
+    color: var(--link-color);
     text-decoration: none;
-    transition: color 0.2s;
+    transition: color 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
 }
 
-a:hover {
+a:hover,
+a:focus {
     color: var(--accent-color);
     text-decoration: none;
 }
 
-/* Header Section */
+a:focus-visible,
+.paper-item:focus-visible {
+    outline: 3px solid rgba(36, 107, 112, 0.24);
+    outline-offset: 3px;
+}
+
 #header {
-    padding-top: 60px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid #eaeaea;
-    margin-bottom: 40px;
+    padding: 56px 0 34px;
+    margin-bottom: 38px;
+    background: linear-gradient(180deg, #ffffff 0%, #fbfbf8 100%);
+    border-bottom: 1px solid var(--rule-color);
 }
 
 .profile-img {
-    width: 100%;
-    max-width: 200px;
-    border-radius: 50%; /* Circle portrait */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
-.profile-img:hover {
-    transform: scale(1.02);
+    width: min(100%, 184px);
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #ffffff;
+    box-shadow: 0 14px 34px rgba(38, 52, 67, 0.12);
 }
 
 .name-title {
-    font-size: 36px;
+    font-size: 38px;
     font-weight: 700;
-    color: #1a202c;
-    margin-bottom: 5px;
+    color: #1f2933;
+    margin-bottom: 6px;
+    line-height: 1.12;
 }
 
 .email-text {
     font-family: 'Courier New', monospace;
-    color: #718096;
-    font-size: 16px;
-    margin-bottom: 15px;
+    color: var(--muted-color);
+    font-size: 15px;
+    margin-bottom: 14px;
 }
 
-/* Social Icons */
+.role-text {
+    color: #4c5966;
+}
+
 .social-links {
-    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.social-btn,
+.cv-link {
+    min-height: 38px;
+    border: 1px solid var(--rule-color);
+    background-color: var(--surface-color);
+    color: var(--primary-color);
 }
 
 .social-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
-    background-color: var(--light-bg);
-    color: var(--primary-color);
-    margin-right: 10px;
-    font-size: 18px;
-    transition: all 0.2s;
+    font-size: 17px;
 }
 
-.social-btn:hover {
-    background-color: var(--primary-color);
-    color: #fff;
-    transform: translateY(-2px);
+.social-btn:hover,
+.social-btn:focus,
+.cv-link:hover,
+.cv-link:focus {
+    border-color: rgba(217, 111, 50, 0.42);
+    background-color: var(--accent-soft);
+    color: var(--accent-color) !important;
 }
 
 .cv-link {
     display: inline-flex;
     align-items: center;
-    padding: 8px 16px;
-    background-color: var(--primary-color);
-    color: white !important;
-    border-radius: 20px;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 999px;
     font-size: 14px;
-    font-weight: 500;
-    margin-right: 10px;
+    font-weight: 600;
 }
 
-.cv-link:hover {
-    background-color: var(--accent-color);
-}
-
-/* Section Headers */
 h1 {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
-    color: #1a202c;
-    margin-bottom: 20px;
+    color: #202b36;
+    margin: 0 0 16px;
     position: relative;
-    padding-left: 15px;
+    padding-left: 14px;
+    line-height: 1.2;
 }
 
 h1::before {
     content: '';
     position: absolute;
     left: 0;
-    top: 5px;
-    bottom: 5px;
+    top: 4px;
+    bottom: 4px;
     width: 4px;
-    background-color: var(--accent-color);
+    background: var(--accent-color);
     border-radius: 2px;
 }
 
-/* Paper List Styling */
-.paper-item {
-    padding: 25px;
-    margin-bottom: 25px;
-    border-radius: var(--border-radius);
-    background: #fff;
-    transition: all 0.3s ease;
-    border: 1px solid transparent;
+p {
+    margin-bottom: 14px;
 }
 
-.paper-item:hover {
-    background: #fff;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border-color: #f0f0f0;
-    transform: translateY(-2px);
+ul.list-unstyled {
+    padding: 18px 20px;
+    margin: 0;
+    border: 1px solid var(--soft-rule);
+    border-radius: var(--border-radius);
+    background: rgba(255, 255, 255, 0.68);
+}
+
+ul.list-unstyled li + li {
+    margin-top: 7px;
+}
+
+.paper-item {
+    align-items: center;
+    padding: 18px 0;
+    margin: 0;
+    border-top: 1px solid var(--soft-rule);
+    background: transparent;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.paper-item:hover,
+.paper-item:focus-within {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.paper-item:focus {
+    outline: none;
 }
 
 .paper-title {
     font-size: 18px;
     font-weight: 700;
-    color: #2d3748;
-    margin-bottom: 5px;
-    line-height: 1.3;
+    color: #202b36;
+    margin-bottom: 6px;
+    line-height: 1.34;
 }
 
 .paper-authors {
     font-size: 15px;
-    color: #4a5568;
+    color: #4c5966;
     margin-bottom: 8px;
 }
 
 .paper-authors b {
-    color: #1a202c;
-    font-weight: 600;
+    color: #1f2933;
+    font-weight: 700;
 }
 
-/* Badges for Conferences */
 .conf-badge {
-    display: inline-block;
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 600;
-    background-color: #edf2f7;
-    color: #2d3748;
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    background-color: #edf5f3;
+    color: var(--link-color);
     margin-bottom: 8px;
 }
 
 .conf-badge.highlight {
-    background-color: #fff5f0; /* Light orange bg */
-    color: #c05621;
-    border: 1px solid #fed7d7;
+    background-color: var(--accent-soft);
+    color: #a84f20;
+    border: 1px solid #ffd6bf;
 }
 
-/* Links Buttons for Papers */
 .resource-link {
-    font-size: 13px;
-    font-weight: 600;
-    margin-right: 12px;
     display: inline-flex;
     align-items: center;
-    color: #718096;
+    gap: 5px;
+    min-height: 28px;
+    margin-right: 12px;
+    color: var(--muted-color);
+    font-size: 13px;
+    font-weight: 700;
 }
 
-.resource-link i {
-    margin-right: 4px;
-}
-
-.resource-link:hover {
+.resource-link:hover,
+.resource-link:focus {
     color: var(--accent-color);
 }
 
-/* Images and Videos */
 .paper-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--soft-rule);
+    background: var(--media-bg);
 }
 
-video, img.img-fluid {
+.paper-media video,
+.paper-media img {
     display: block;
     width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
-/* Highlight Color Helper */
+.paper-media video {
+    display: none;
+}
+
+.paper-media.video-active video {
+    display: block;
+}
+
+.paper-media.video-active .paper-poster {
+    display: none;
+}
+
 .highlight-color {
     color: var(--accent-color);
 }
 
-/* Layout Helpers */
 .container {
-    max-width: 960px; /* Make it slightly narrower for better reading */
+    max-width: 980px;
 }
 
-.vspace-top { margin-top: 40px; }
+.vspace-top {
+    margin-top: 42px;
+}
 
-/* 基础动画类 */
 .hover-fx {
-    display: inline-block; /* transform 属性需要 inline-block 或 block 才能生效 */
-    text-decoration: none; /* 推荐：先去掉默认下划线，完全由我们控制 */
-    transition: transform 0.25s cubic-bezier(.5, 1.7, .5, 1), 
-                text-shadow 0.25s ease;
-    /* 默认发光色，防止未定义变量时出错 */
-    --glow-color: rgba(0, 0, 0, 0.2); 
+    display: inline-block;
+    text-decoration: none;
+    transition: color 0.18s ease, text-shadow 0.18s ease;
+    --glow-color: rgba(0, 0, 0, 0.16);
 }
 
-/* 悬停效果 */
-.hover-fx:hover {
-    /* 你的原始变换参数 */
-    transform: scale(1.06) rotate(-1deg) skewX(-2deg);
-    /* 使用 CSS 变量调用颜色 */
+.hover-fx:hover,
+.hover-fx:focus {
     text-shadow: 0 2px 12px var(--glow-color);
-    
-    /* 如果希望文字本身有下划线，加上这个；如果觉得不需要可以删掉 */
-    /* text-decoration: underline; */
 }
 
-/* 针对内部包含 bold 标签的情况，确保继承样式（可选，视你的全局CSS而定） */
 .hover-fx b {
-    display: inline-block; /* 确保 b 标签也能正确响应布局 */
+    display: inline-block;
 }
 
-/* Footer */
 #footer {
-    margin-top: 80px;
-    padding: 40px 0;
-    border-top: 1px solid #eaeaea;
+    margin-top: 64px;
+    padding: 32px 0;
+    border-top: 1px solid var(--rule-color);
     text-align: center;
     font-size: 14px;
-    color: #a0aec0;
+    color: var(--muted-color);
 }
 
+@media (max-width: 767.98px) {
+    #header {
+        padding: 34px 0 28px;
+        margin-bottom: 28px;
+    }
+
+    .name-title {
+        margin-top: 18px;
+        font-size: 31px;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    h1 {
+        font-size: 21px;
+    }
+
+    .paper-item {
+        padding: 20px 0;
+    }
+
+    .paper-item .col-sm-3 {
+        margin-bottom: 14px;
+    }
+
+    .paper-title {
+        font-size: 17px;
+    }
+}

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 730 331" role="img" aria-labelledby="title desc">
+  <title id="title">R3 confidence-weighted pairwise pose graph</title>
+  <desc id="desc">A sequence of camera poses connected by confidence-weighted pairwise pose edges.</desc>
+  <rect width="730" height="331" fill="#f7f7f8"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M25 180 L102 237 L166 282 L220 296 L254 274 L277 230 L302 166 L330 103 L376 61 L435 51 L510 67 L587 111 L656 176 L715 232" stroke="#f0b600" stroke-width="6"/>
+    <path d="M25 180 L166 282 M25 180 L277 230 M25 180 L435 51 M25 180 L656 176 M102 237 L302 166 M102 237 L376 61 M166 282 L510 67 M220 296 L715 232 M254 274 L587 111 M277 230 L656 176 M302 166 L715 232" stroke="#0aa56a" stroke-width="2.5" opacity=".18"/>
+    <path d="M25 180 L715 232 M25 180 L510 67 M102 237 L715 232 M166 282 L656 176 M254 274 L715 232 M277 230 L587 111 M302 166 L656 176 M330 103 L715 232" stroke="#d94f72" stroke-width="2.5" opacity=".16"/>
+    <path d="M102 237 L435 51 M166 282 L376 61 M220 296 L510 67 M302 166 L587 111 M376 61 L656 176 M435 51 L715 232" stroke="#70757a" stroke-width="2.5" opacity=".22"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" font-weight="700" text-anchor="middle" dominant-baseline="central">
+    <circle cx="25" cy="180" r="18" fill="#079b68"/>
+    <text x="25" y="180" font-size="17" fill="#fff">F0</text>
+
+    <circle cx="102" cy="237" r="16" fill="#0aa56a" stroke="#f0b600" stroke-width="4"/>
+    <text x="102" y="237" font-size="17" fill="#fff">1</text>
+
+    <circle cx="166" cy="282" r="16" fill="#0aa56a" stroke="#f0b600" stroke-width="4"/>
+    <text x="166" y="282" font-size="17" fill="#fff">2</text>
+
+    <circle cx="220" cy="296" r="8" fill="#91b82f"/>
+    <text x="220" y="296" font-size="12" fill="#fff">3</text>
+
+    <circle cx="254" cy="274" r="8" fill="#91b82f"/>
+    <text x="254" y="274" font-size="12" fill="#fff">4</text>
+
+    <circle cx="277" cy="230" r="16" fill="#0aa56a" stroke="#f0b600" stroke-width="4"/>
+    <text x="277" y="230" font-size="17" fill="#fff">5</text>
+
+    <circle cx="302" cy="166" r="16" fill="#0aa56a" stroke="#f0b600" stroke-width="4"/>
+    <text x="302" y="166" font-size="17" fill="#fff">6</text>
+
+    <circle cx="330" cy="103" r="8" fill="#91b82f"/>
+    <text x="330" y="103" font-size="12" fill="#fff">7</text>
+
+    <circle cx="376" cy="61" r="16" fill="#0aa56a" stroke="#f0b600" stroke-width="4"/>
+    <text x="376" y="61" font-size="17" fill="#fff">8</text>
+
+    <circle cx="435" cy="51" r="8" fill="#91b82f"/>
+    <text x="435" y="51" font-size="12" fill="#fff">9</text>
+
+    <circle cx="510" cy="67" r="16" fill="#0aa56a" stroke="#f0b600" stroke-width="4"/>
+    <text x="510" y="67" font-size="17" fill="#fff">10</text>
+
+    <circle cx="587" cy="111" r="8" fill="#91b82f"/>
+    <text x="587" y="111" font-size="12" fill="#fff">11</text>
+
+    <circle cx="656" cy="176" r="16" fill="#0aa56a" stroke="#f0b600" stroke-width="4"/>
+    <text x="656" y="176" font-size="17" fill="#fff">12</text>
+
+    <circle cx="715" cy="232" r="14" fill="#19864b"/>
+    <text x="715" y="232" font-size="16" fill="#fff">13</text>
+  </g>
+</svg>
